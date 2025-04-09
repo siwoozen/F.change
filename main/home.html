@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>TCML 홈</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* 상단 GNB */
+    .gnb {
+      height: 60px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gnb img {
+      height: 30px;
+    }
+
+    /* 메인 콘텐츠 */
+    .content {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* 하단 탭바 */
+    .tabbar {
+      height: 60px;
+      border-top: 1px solid #ddd;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .tabbar-item {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+
+    .tabbar-item.home {
+      font-weight: bold;
+      color: #007AFF;
+    }
+
+    .tabbar-item span {
+      display: block;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 GNB -->
+  <div class="gnb">
+    <img src="home.png" alt="TCML 로고">
+  </div>
+
+  <!-- 메인 콘텐츠 -->
+  <div class="content">
+    <h2>홈 콘텐츠 준비 중...</h2>
+    <p>이곳에 나중에 카드 리스트, 기능 버튼 등을 배치할 수 있어요.</p>
+  </div>
+
+  <!-- 하단 탭 네비게이션 -->
+  <div class="tabbar">
+    <div class="tabbar-item"><span>📍</span>Area</div>
+    <div class="tabbar-item"><span>🗺️</span>Area</div>
+    <div class="tabbar-item home"><span>🏠</span>Home</div>
+    <div class="tabbar-item"><span>💬</span>Chat</div>
+    <div class="tabbar-item"><span>👤</span>My</div>
+  </div>
+
+</body>
+</html>
