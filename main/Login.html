@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>TCML 로그인</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    body {
+      background-color: #F9F9F9;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* GNB */
+    .gnb {
+      height: 60px;
+      background-color: #98C682;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .gnb img {
+      height: 50px;
+    }
+
+    .back-button {
+      position: absolute;
+      left: 16px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* 로그인 영역 */
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .autologin {
+      display: inline-flex;            /* ✅ 텍스트가 옆으로 줄바꿈 없이 붙음 */
+      align-items: center;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 12px;
+      white-space: nowrap;            /* ✅ 줄바꿈 방지! */
+      gap: 6px;
+    }
+    .autologin input {
+      margin-right: 6px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #98C682;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .login-box button:hover {
+      background-color: #7fb662;
+    }
+
+    .signup-link {
+      display: block;
+      text-align: center;
+      margin: 12px 0;
+      font-size: 14px;
+      color: #007AFF;
+      text-decoration: none;
+    }
+
+    .signup-link:hover {
+      text-decoration: underline;
+    }
+
+    .divider {
+      margin: 24px 0 16px;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+
+    .social {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .social.kakao {
+      background-color: #FEE500;
+      color: #3C1E1E;
+    }
+
+    .social.naver {
+      background-color: #03C75A;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 GNB -->
+  <div class="gnb">
+    <button class="back-button" onclick="history.back()">←</button>
+    <img src="LOGO.png" alt="TCML 로고">
+  </div>
+
+  <!-- 로그인 입력 영역 -->
+  <div class="content">
+    <div class="login-box">
+      <input type="email" placeholder="이메일 입력" />
+      <input type="password" placeholder="비밀번호 입력" />
+
+      <!-- 자동 로그인 -->
+      <label class="autologin">
+        <input type="checkbox" />
+        자동 로그인
+      </label>
+
+      <!-- 로그인 버튼 -->
+      <button>로그인</button>
+
+      <!-- 회원가입 텍스트 -->
+      <a href="#" class="signup-link">회원가입</a>
+
+      <!-- 구분선 -->
+      <hr class="divider" />
+
+      <!-- 소셜 로그인 -->
+      <button class="social kakao">카카오로 로그인</button>
+      <button class="social naver">네이버로 로그인</button>
+    </div>
+  </div>
+
+</body>
+</html>

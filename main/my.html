@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>TCML 홈</title>
+  <title>TCML 마이페이지</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
@@ -22,7 +22,7 @@
     /* 상단 GNB */
     .gnb {
       height: 60px;
-      background-color: #98C682; 
+      background-color: #98C682;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -40,9 +40,35 @@
     }
 
     .content h2 {
-      margin-top: 80px;
+      margin-top: 20px;
       font-size: 20px;
       color: #444;
+    }
+
+    .luffy-img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 12px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .join-button {
+      margin-top: 20px;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #98C682;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .join-button:hover {
+      background-color: #98C682;
     }
 
     /* 하단 탭바 */
@@ -68,9 +94,9 @@
       font-size: 18px;
     }
 
-    .tabbar-item.home {
+    .tabbar-item.my {
       font-weight: bold;
-      color: #98C682;
+      color: #98C682;;
     }
   </style>
 </head>
@@ -83,18 +109,20 @@
 
   <!-- 메인 콘텐츠 -->
   <div class="content">
-    <h2>홈 콘텐츠 준비 중입니다 :)</h2>
+    <img src="동료가 되어라.jpg" alt="루피 동료" class="luffy-img" />
+    <button class="join-button" onclick="location.href='Login.html'">
+        너 내 동료가 되어라
+    </button>
   </div>
 
   <!-- 하단 탭 네비게이션 -->
   <div class="tabbar">
     <a href="#" class="tabbar-item"><span>📌</span>Area</a>
     <a href="#" class="tabbar-item"><span>🧭</span>Area</a>
-    <a href="home.html" class="tabbar-item home"><span>🏠</span>Home</a>
+    <a href="home.html" class="tabbar-item"><span>🏠</span>Home</a>
     <a href="#" class="tabbar-item"><span>💬</span>Chat</a>
-    <a href="my.html" class="tabbar-item"><span>👤</span>My</a>
+    <a href="my.html" class="tabbar-item my"><span>👤</span>My</a>
   </div>
 
 </body>
 </html>
-

@@ -5,56 +5,41 @@
   <title>TCML 로딩</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body, html {
       width: 100%;
       height: 100%;
-      overflow: hidden;
-    }
-
-    .splash {
-      background-color: #98C682; /* 초록 메인 컬러 */
-      width: 100%;
-      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #98C682;
       display: flex;
-      align-items: center;
       justify-content: center;
-      animation: fadeOut 1s ease-out 2s forwards;
+      align-items: center;
     }
 
     .splash img {
-      width: 160px;
+      width: 250px;
       height: auto;
-      animation: zoomIn 1s ease-in-out;
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
     }
 
-    @keyframes zoomIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to   { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- 로딩 스플래시 -->
   <div class="splash">
-    <img src="main/TCML.png" alt="TCML 로고">
+    <img src="LOGO.png" alt="TCML 로고">
   </div>
 
-  <!-- 자동 페이지 이동 -->
   <script>
     setTimeout(() => {
       window.location.href = "home.html";
-    }, 2500); // 2.5초 후 home.html로 이동
+    }, 2500);
   </script>
 
 </body>
