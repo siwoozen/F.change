@@ -37,12 +37,49 @@
       flex: 1;
       padding: 20px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .content h2 {
-      margin-top: 80px;
       font-size: 20px;
       color: #444;
+      margin-bottom: 30px;
+    }
+
+    .upload-btn {
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+      background-color: #98C682;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin-bottom: 12px;
+    }
+
+    .upload-btn:hover {
+      background-color: #7fb662;
+    }
+
+    .log-btn {
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .log-btn:hover {
+      background-color: #cfcfcf;
     }
 
     /* 하단 탭바 */
@@ -61,16 +98,24 @@
       font-size: 12px;
       color: #666;
       text-decoration: none;
+      transition: color 0.2s;
     }
 
     .tabbar-item span {
       display: block;
       font-size: 18px;
+      margin-bottom: 2px;
     }
 
     .tabbar-item.home {
       font-weight: bold;
       color: #98C682;
+    }
+
+    /* ✅ 무채색 이모지 효과 */
+    .tabbar-item.gray span {
+      filter: grayscale(100%);
+      opacity: 0.6;
     }
   </style>
 </head>
@@ -83,18 +128,23 @@
 
   <!-- 메인 콘텐츠 -->
   <div class="content">
-    <h2>홈 콘텐츠 준비 중입니다 :)</h2>
+    <h2>내가 이걸 왜 하고있지</h2>
+
+    <!-- 사진 등록 버튼 -->
+    <button class="upload-btn"> 사진 등록</button>
+
+    <!-- 데이터 입력 기록 버튼 -->
+    <button class="log-btn">📄 데이터 입력 기록</button>
   </div>
 
   <!-- 하단 탭 네비게이션 -->
   <div class="tabbar">
-    <a href="#" class="tabbar-item"><span>📌</span>Area</a>
-    <a href="#" class="tabbar-item"><span>🧭</span>Area</a>
-    <a href="home.html" class="tabbar-item home"><span>🏠</span>Home</a>
+    <a href="#" class="tabbar-item gray"><span>📌</span>Area</a>
+    <a href="#" class="tabbar-item gray"><span>🔍</span>Area</a>
+    <a href="home.html" class="tabbar-item home gray"><span>🏠</span>Home</a>
     <a href="#" class="tabbar-item"><span>💬</span>Chat</a>
     <a href="my.html" class="tabbar-item"><span>👤</span>My</a>
   </div>
 
 </body>
 </html>
-
