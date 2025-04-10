@@ -17,6 +17,7 @@
       display: flex;
       flex-direction: column;
       height: 100vh;
+      overflow-x: hidden;
     }
 
     /* 상단 GNB */
@@ -30,6 +31,63 @@
 
     .gnb img {
       height: 50px;
+    }
+
+    /* LNB */
+    .lnb {
+      overflow-x: auto;
+      white-space: nowrap;
+      background-color: #fff;
+      border-bottom: 1px solid #eee;
+
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      touch-action: pan-x;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .lnb::-webkit-scrollbar {
+      display: none;
+    }
+
+    .lnb-scroll {
+      display: inline-flex;
+      padding: 7px 15px;
+    }
+
+    .lnb-scroll a {
+      margin-right: 16px;
+      padding: 2px 5px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+      font-size: 12px;
+      flex-shrink: 0;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    .lnb-scroll a:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* 캐러셀 배너 */
+    .carousel {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      touch-action: pan-y;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+    }
+
+    .slides img {
+      width: 100%;
+      flex-shrink: 0;
     }
 
     /* 메인 콘텐츠 */
@@ -112,10 +170,30 @@
       color: #98C682;
     }
 
-    /* ✅ 무채색 이모지 효과 */
     .tabbar-item.gray span {
       filter: grayscale(100%);
       opacity: 0.6;
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+    }
+
+    .dots .dot {
+      width: 8px;
+      height: 8px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+
+    .dots .dot.active {
+      background-color: #fff;
     }
   </style>
 </head>
@@ -123,28 +201,99 @@
 
   <!-- 상단 GNB -->
   <div class="gnb">
-    <img src="LOGO.png" alt="TCML 로고">
+    <img src="image/LOGO.png" alt="TCML 로고">
+  </div>
+
+  <!-- LNB -->
+  <div class="lnb">
+    <div class="lnb-scroll">
+      <a href="#">추천</a>
+      <a href="#">랭킹</a>
+      <a href="#">발매정보</a>
+      <a href="#">포켓몬</a>
+      <a href="#">유희왕</a>
+      <a href="#">원피스</a>
+      <a href="#">000</a>
+      <a href="#">000</a>
+    </div>
+  </div>
+
+  <!-- 캐러셀 배너 -->
+  <div class="carousel">
+    <div class="slides">
+      <img src="image/component (1).webp" alt="배너1" />
+      <img src="image/component.webp" alt="배너2" />
+      <img src="image/event-planner-banner-design-template_23-2149081308.avif" alt="배너3" />
+    </div>
+      <!--  dot 인디케이터 -->
+    <div class="dots" id="dots">
+    </div>
   </div>
 
   <!-- 메인 콘텐츠 -->
   <div class="content">
     <h2>내가 이걸 왜 하고있지</h2>
-
-    <!-- 사진 등록 버튼 -->
     <button class="upload-btn"> 사진 등록</button>
-
-    <!-- 데이터 입력 기록 버튼 -->
     <button class="log-btn">📄 데이터 입력 기록</button>
   </div>
 
   <!-- 하단 탭 네비게이션 -->
   <div class="tabbar">
     <a href="#" class="tabbar-item gray"><span>📌</span>Area</a>
-    <a href="#" class="tabbar-item gray"><span>🔍</span>Area</a>
+    <a href="#" class="tabbar-item gray"><span>🔍</span>Search</a>
     <a href="home.html" class="tabbar-item home gray"><span>🏠</span>Home</a>
-    <a href="#" class="tabbar-item"><span>💬</span>Chat</a>
+    <a href="chat.html" class="tabbar-item"><span>💬</span>Chat</a>
     <a href="my.html" class="tabbar-item"><span>👤</span>My</a>
   </div>
+
+  <!-- JS: 터치 슬라이드 + 자동 슬라이드 -->
+  <script>
+    const slides = document.querySelector('.slides');
+    const totalSlides = slides.children.length;
+    let currentIndex = 0;
+
+    let startX = 0;
+
+    document.querySelector('.carousel').addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
+
+    document.querySelector('.carousel').addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) {
+        currentIndex = Math.min(currentIndex + 1, totalSlides - 1);
+      } else if (endX - startX > 50) {
+        currentIndex = Math.max(currentIndex - 1, 0);
+      }
+      updateSlide();
+    });
+
+    function updateSlide() {
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlide();
+    }, 4000);
+
+    const dotsContainer = document.getElementById('dots');
+
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active'); // 첫 점 활성화
+      dotsContainer.appendChild(dot);
+    }
+
+    function updateSlide() {
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+      document.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+  </script>
 
 </body>
 </html>
